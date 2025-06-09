@@ -1,0 +1,8 @@
+﻿@model TaskRapidAPI.Models.SoccerViewModel
+<div class="card">
+    <h3>Canlı Futbol Skorları</h3>
+    <table>
+        <tr><th>Maç</th><th>Skor</th></tr>
+        <tr><td>@Model.response.live.FirstOrDefault()?.home.name vs @Model.response.live.FirstOrDefault()?.away.name</td><td>@Model.response.live.FirstOrDefault()?.home.score - @Model.response.live.FirstOrDefault()?.away.score</td></tr>
+    </table>
+</div>

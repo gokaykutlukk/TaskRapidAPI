@@ -1,0 +1,12 @@
+﻿@model TaskRapidAPI.Models.WeatherViewModel
+@{
+    int sicaklik = (int)(Model.main.temp - 273.15);
+    int hissedilen = (int)(Model.main.feels_like - 273.15);
+}
+<div class="card">
+    <h3>Hava Durumu</h3>
+    <table>
+        <tr><th>Şehir</th><th>Sıcaklık</th><th>Hissedilen</th><th>Durum</th></tr>
+        <tr><td>İstanbul</td><td>@sicaklik °C</td><td>@hissedilen °C</td><td>@Model.weather.FirstOrDefault()?.main</td></tr>
+    </table>
+</div>

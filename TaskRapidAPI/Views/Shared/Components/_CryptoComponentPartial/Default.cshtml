@@ -1,0 +1,12 @@
+﻿@model TaskRapidAPI.Models.CryptoViewModel
+<div class="card">
+    <h3>Kripto Paralar</h3>
+    <table>
+        <tr><th>Coin</th><th>Fiyat</th></tr>
+        <tr><td>Bitcoin (BTC)</td><td>@Model.data.tokens.Where(x => x.symbol == "BTC").FirstOrDefault()?.price $</td></tr>
+        <tr><td>Ethereum (ETH)</td><td>@Model.data.tokens.Where(x => x.symbol == "ETH").FirstOrDefault()?.price $</td></tr>
+        <tr><td>Solana (SOL)</td><td>@Model.data.tokens.Where(x => x.symbol == "SOL").FirstOrDefault()?.price $</td></tr>
+        <tr><td>Avalanche (AVAX)</td><td>@Model.data.tokens.Where(x => x.symbol == "AVAX").FirstOrDefault()?.price $</td></tr>
+        <tr><td>Doge (DOGE)</td><td>@Model.data.tokens.Where(x => x.symbol == "DOGE").FirstOrDefault()?.price $</td></tr>
+    </table>
+</div>

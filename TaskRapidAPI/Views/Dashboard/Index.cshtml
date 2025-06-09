@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+        }
+
+        .header {
+            background-color: #4A90E2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            flex: 1 1 calc(50% - 30px);
+            box-sizing: border-box;
+        }
+
+            .card:hover {
+                transform: scale(1.02);
+            }
+
+        h3 {
+            margin-top: 0;
+            color: #4A90E2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Güncel Bilgiler Dashboard</div>
+    <div class="dashboard">
+        @await Component.InvokeAsync("_UsdTryComponentPartial")
+        <div class="card">
+            <h3>EUR ve GBP Değerleri</h3>
+            <table>
+                <tr><th>Para Birimi</th><th>TRY</th></tr>
+                @await Component.InvokeAsync("_EurTryComponentPartial")
+                @await Component.InvokeAsync("_GbpTryComponentPartial")
+            </table>
+        </div>
+        @await Component.InvokeAsync("_FuelComponentPartial")
+        @await Component.InvokeAsync("_MealComponentPartial")
+        @await Component.InvokeAsync("_WeatherComponentPartial")
+        @await Component.InvokeAsync("_NewsComponentPartial")
+        @await Component.InvokeAsync("_SoccerComponentPartial")
+        @await Component.InvokeAsync("_CryptoComponentPartial")
+    </div>
+</body>
+</html>

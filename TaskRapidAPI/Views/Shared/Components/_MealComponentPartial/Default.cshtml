@@ -1,0 +1,10 @@
+﻿@model TaskRapidAPI.Models.MealViewModel
+<div class="card">
+    <h3>Günün Yemek Tarifi</h3>
+    <p><strong>🍲@Model.name</strong><br />
+        <strong>⏳Hazırlanma Süresi: @Model.prepareTime dk</strong><br />
+        <strong>🍳Pişme Süresi: @Model.cookTime dk</strong><br />
+        <strong>🍽️@Model.servingSizes[0].scale kişilik</strong><br />
+        @Model.description
+    </p>
+</div>

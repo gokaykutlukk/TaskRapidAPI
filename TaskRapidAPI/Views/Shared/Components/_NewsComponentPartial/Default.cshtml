@@ -1,0 +1,7 @@
+﻿@model List<TaskRapidAPI.Models.NewsViewModel.Datum>
+<div class="card">
+    <h3>Güncel Haberler</h3>
+    @foreach(var item in Model){
+    <a href="@item.source_url" target="_blank"><strong>@item.title</strong></a><br />
+    }
+</div>

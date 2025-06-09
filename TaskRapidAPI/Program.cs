@@ -1,9 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllersWithViews(); // Eðer View de kullanýyorsan bu olmalý
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,8 +16,21 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles(); // Eðer wwwroot kullanýyorsan
+
+app.UseRouting(); // GEREKLÝ!
+
 app.UseAuthorization();
 
-app.MapControllers();
+// Route tanýmlama:
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Default}/{action=Index}/{id?}");
+});
+
+// Alternatif olarak sadece bunu kullanabilirsin:
+app.MapDefaultControllerRoute(); // Bu yukarýdaki ile ayný iþi yapar
 
 app.Run();

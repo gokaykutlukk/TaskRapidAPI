@@ -1,0 +1,10 @@
+﻿@model TaskRapidAPI.Models.FuelViewModel
+<div class="card">
+    <h3>Akaryakıt Fiyatları</h3>
+    <table>
+        <tr><th>Tip</th><th>Fiyat (TL)</th><th>Son Güncelleme</th></tr>
+        <tr><td>Benzin</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.benzin ₺</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.guncellenme_tarihi</td></tr>
+        <tr><td>Motorin</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.motorin ₺</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.guncellenme_tarihi</td></tr>
+        <tr><td>LPG</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.lpg ₺</td><td>@Model.data.FirstOrDefault()?.prices.FirstOrDefault()?.guncellenme_tarihi</td></tr>
+    </table>
+</div>
